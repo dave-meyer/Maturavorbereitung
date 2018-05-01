@@ -10,9 +10,9 @@ public class Controller {
 
     /** Zu Beginn erhalten alle Spieler ein paar Karten */
     public void spielerKartenAusteilenBeginn() {
-        for(Spieler s : spieler) {
+        for(Spieler s : model.getSpieler()) {
             for(int i = 0; i < Game.ANZ_KARTEN_BEGINN; i++) {
-                gebeKarte(s);
+                model.gebeKarte(s);
             }
         }
     }
@@ -23,6 +23,6 @@ public class Controller {
         // TODO model und game
 
         // Jedem Spieler seine Anfangs-Karten geben
-        spielerKartenAusteilenBeginn();
+        //spielerKartenAusteilenBeginn();
     }
 }

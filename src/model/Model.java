@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Model extends Observeable {
 
     private Game game;
@@ -7,4 +9,25 @@ public class Model extends Observeable {
     public Model() {
         game = new Game();
     }
+
+    public void gebeKarte(Spieler s) {
+        game.gebeKarte(s);
+        notifyObservers(new Message()); // Message sollte irgendwas beinhalten
+    }
+
+
+    public ArrayList<Spieler> getSpieler() {
+        return game.getSpieler();
+    }
+
+    public void addSpieler(Spieler spieler) {
+        game.addSpieler(spieler);
+        notifyObservers(new Message()); // Message sollte irgendwas beinhalten
+    }
+
+    public void removeSpieler(Spieler spieler) {
+        game.removeSpieler(spieler);
+        notifyObservers(new Message()); // Message sollte irgendwas beinhalten
+    }
+
 }

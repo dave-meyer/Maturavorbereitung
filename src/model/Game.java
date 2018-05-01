@@ -64,4 +64,33 @@ public class Game {
     public void gebeKarte(Spieler s) {
         s.erhalteKarte(kartenstapel.remove(kartenstapel.size()-1));
     }
+
+
+    public ArrayList<Karte> getKartenstapel() {
+        return kartenstapel;
+    }
+
+    public void setKartenstapel(ArrayList<Karte> kartenstapel) {
+        this.kartenstapel = kartenstapel;
+    }
+
+    public ArrayList<Spieler> getSpieler() {
+        return spieler;
+    }
+
+    public void addSpieler(Spieler spieler) {
+        this.spieler.add(spieler);
+    }
+
+    public void removeSpieler(Spieler spieler) {
+        this.spieler.add(spieler);
+    }
+
+    public Croupier getCroupier() {
+        return croupier;
+    }
+
+    public void setCroupier(Croupier croupier) {
+        this.croupier = croupier;
+    }
 }
