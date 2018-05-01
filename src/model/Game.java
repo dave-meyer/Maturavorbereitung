@@ -11,7 +11,7 @@ public class Game {
 
     private ArrayList<Karte> kartenstapel;
     private ArrayList<Spieler> spieler;
-    private Croupier croupier;
+    //private Croupier croupier;
 
     public void initGame() {
 
@@ -19,15 +19,7 @@ public class Game {
         kartenstapel = kartenMischeln(kartenstapel);
 
         spieler = new ArrayList<>();
-        Croupier croupier = new Croupier(0);
-        croupier.setStrategy(new NeueKarteBis17()); // hier könnte Ihre Strategy stehen
-        spieler.add(croupier);
-
-        // Spieler hinzufuegen sollte wo anders stattfinden
-        spieler.add(new Spieler(1000));
-        spieler.add(new Spieler(1000));
-        spieler.add(new Spieler(1000));
-
+        spieler.add(new Croupier(0));
     }
 
 
@@ -61,8 +53,8 @@ public class Game {
         return temp;
     }
 
-    public void gebeKarte(Spieler s) {
-        s.erhalteKarte(kartenstapel.remove(kartenstapel.size()-1));
+    public void gebeKarte(Spieler spieler) {
+        spieler.erhalteKarte(kartenstapel.remove(kartenstapel.size()-1));
     }
 
 
@@ -87,10 +79,9 @@ public class Game {
     }
 
     public Croupier getCroupier() {
-        return croupier;
-    }
-
-    public void setCroupier(Croupier croupier) {
-        this.croupier = croupier;
+        for(Spieler s : spieler) {
+            if(s instanceof Croupier) return (Croupier) s;
+        }
+        return null;
     }
 }

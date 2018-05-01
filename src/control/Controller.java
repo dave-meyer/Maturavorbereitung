@@ -2,6 +2,7 @@ package control;
 
 import model.Game;
 import model.Model;
+import model.NeueKarteBis17;
 import model.Spieler;
 
 public class Controller {
@@ -20,9 +21,15 @@ public class Controller {
     public void initGame() {
 
         model = new Model();
-        // TODO model und game
+        model.getGame().initGame();
+
+        // Spieler hinzufuegen sollte von GUI Commands kommen
+        model.addSpieler(new Spieler(1000));
+        model.addSpieler(new Spieler(1000));
+        model.addSpieler(new Spieler(1000));
+        model.getCroupier().setStrategy(new NeueKarteBis17()); // hier könnte Ihre Strategy stehen
 
         // Jedem Spieler seine Anfangs-Karten geben
-        //spielerKartenAusteilenBeginn();
+        spielerKartenAusteilenBeginn();
     }
 }

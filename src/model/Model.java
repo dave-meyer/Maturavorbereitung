@@ -15,6 +15,9 @@ public class Model extends Observeable {
         notifyObservers(new Message()); // Message sollte irgendwas beinhalten
     }
 
+    public Game getGame() {
+        return game;
+    }
 
     public ArrayList<Spieler> getSpieler() {
         return game.getSpieler();
@@ -30,4 +33,7 @@ public class Model extends Observeable {
         notifyObservers(new Message()); // Message sollte irgendwas beinhalten
     }
 
+    public Croupier getCroupier() {
+        return game.getCroupier();
+    }
 }
