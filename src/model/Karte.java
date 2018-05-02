@@ -20,12 +20,13 @@ public class Karte {
 
     @Override
     public boolean equals(Object obj) {
-        if(obj instanceof Karte) {
-            Karte k = (Karte) obj;
-            return (this.farbe.equals(k.farbe) && this.wert.equals(k.wert));
-            // Verständlichere Schreibweise:
+        return (obj instanceof Karte && this.farbe.equals(((Karte) obj).farbe) && this.wert.equals(((Karte) obj).wert));
+
+        // Verständlichere Schreibweise:
+        //if(obj instanceof Karte) {
+            //Karte k = (Karte) obj;
             //if(this.farbe.equals(k.farbe) && this.wert.equals(k.wert)) return true;
-        }
-        return false;
+        //}
+        //return false;
     }
 }
