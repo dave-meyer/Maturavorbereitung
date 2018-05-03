@@ -17,7 +17,8 @@ public class Game {
 
     public void initGame() {
 
-        kartenstapel = KarteFactory.getNeuenKartenstapel();
+        //kartenstapel = KarteFactory.getNeuenKartenstapel();
+        kartenstapel = KarteFactory.create("neuerKartenstapel");
         kartenstapel = kartenMischeln(kartenstapel);
 
         spieler = new ArrayList<>();

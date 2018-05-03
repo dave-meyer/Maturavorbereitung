@@ -7,7 +7,14 @@ public abstract class KarteFactory {
 
     public static final int ANZ_KARTEN_GESAMT = 48;
 
-    public static ArrayList<Karte> getNeuenKartenstapel() {
+    public static ArrayList<Karte> create(String anweisung) {
+        switch (anweisung) {
+            case "neuerKartenstapel": return getNeuenKartenstapel();
+        }
+        return null;
+    }
+
+    private static ArrayList<Karte> getNeuenKartenstapel() {
         ArrayList<Karte> karten = new ArrayList<>();
 
         // Jede Wert-Farbe Kombination erzeugen
