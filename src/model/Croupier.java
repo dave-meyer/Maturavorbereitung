@@ -1,5 +1,7 @@
 package model;
 
+import model.strategy.ICroupierStrategy;
+
 public class Croupier extends Spieler {
 
     private ICroupierStrategy strategy;

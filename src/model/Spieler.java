@@ -35,6 +35,12 @@ public class Spieler {
         this.karten.add(k);
     }
 
+    /** Undo von erhalteKarte(Karte)
+     */
+    public Karte entferneKarte() {
+        return this.karten.remove(karten.size()-1);
+    }
+
     public void resetKarten() {
         this.karten.clear();
     }

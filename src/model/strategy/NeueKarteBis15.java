@@ -1,4 +1,4 @@
-package model;
+package model.strategy;
 
 public class NeueKarteBis15 implements ICroupierStrategy {
 

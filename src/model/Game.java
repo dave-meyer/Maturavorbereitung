@@ -1,7 +1,9 @@
 package model;
 
 
+import javax.swing.text.html.HTMLDocument;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 public class Game {
@@ -21,8 +23,6 @@ public class Game {
         spieler = new ArrayList<>();
         spieler.add(new Croupier(0));
     }
-
-
 
     public ArrayList<Karte> kartenMischeln(ArrayList<Karte> k) {
         // Neues Array erstellen (enthält später die gemischelten Karten)
@@ -57,6 +57,13 @@ public class Game {
         spieler.erhalteKarte(kartenstapel.remove(kartenstapel.size()-1));
     }
 
+    /**
+     * undo von gebeKarte(Spieler)
+     * @param spieler Der Spieler dem die Karte gegeben wurde
+     */
+    public void entferneKarte(Spieler spieler) {
+        kartenstapel.add(spieler.entferneKarte());
+    }
 
     public ArrayList<Karte> getKartenstapel() {
         return kartenstapel;

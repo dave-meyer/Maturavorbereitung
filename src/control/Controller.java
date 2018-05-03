@@ -2,7 +2,7 @@ package control;
 
 import model.Game;
 import model.Model;
-import model.NeueKarteBis17;
+import model.strategy.NeueKarteBis17;
 import model.Spieler;
 
 public class Controller {
