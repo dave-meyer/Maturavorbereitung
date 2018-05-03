@@ -2,6 +2,7 @@ package control;
 
 import model.Game;
 import model.Model;
+import model.command.AddSpielerCmd;
 import model.command.CommandRecorder;
 import model.command.ICommand;
 import model.command.KarteGebenCmd;
@@ -27,7 +28,11 @@ public class Controller {
         recorder.doCommand(c);
     }
 
-
+    public void addSpieler(Spieler s) {
+        ICommand c = new AddSpielerCmd(model, s);
+        recorder.doCommand(c);
+    }
+    
     public void initGame() {
 
         recorder = new CommandRecorder();
