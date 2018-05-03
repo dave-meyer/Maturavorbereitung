@@ -1,5 +1,7 @@
 package model;
 
+import control.NotEnoughMoneyException;
+
 import java.util.ArrayList;
 
 public class Spieler {
@@ -10,7 +12,7 @@ public class Spieler {
     private float einsatz;
 
     public Spieler(float budget) {
-        this.budget = budget;
+        this.budget = budget; // oder vl setBudget? könnte aber Exception werfen
         karten = new ArrayList<>();
     }
 
@@ -53,8 +55,11 @@ public class Spieler {
         return budget;
     }
 
-    public void setBudget(float budget) {
-        if(budget < 0) budget = 0; // TODO exception oder so?
+    public void setBudget(float budget) throws IllegalArgumentException {
+        if(budget < 0) {
+            //budget = 0;
+            throw new IllegalArgumentException("Das Budget kann nicht weniger als 0 sein (Spieler "+this+")");
+        }
         this.budget = budget;
     }
 
@@ -62,10 +67,11 @@ public class Spieler {
         return einsatz;
     }
 
-    public void setEinsatz(float einsatz) {
+    public void setEinsatz(float einsatz) throws NotEnoughMoneyException {
         if(einsatz > budget) {
             this.einsatz = budget;
             budget = 0;
+            throw new NotEnoughMoneyException("Der Einsatz ist mehr als das verfügbare Budget. Der Einsatz beträgt nun " + this.einsatz + " und das Budget " + this.budget);
         } else {
             this.einsatz = einsatz;
             setBudget(getBudget()-this.einsatz);

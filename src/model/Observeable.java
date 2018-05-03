@@ -1,5 +1,7 @@
 package model;
 
+import view.IObserver;
+
 import java.util.ArrayList;
 
 public abstract class Observeable {

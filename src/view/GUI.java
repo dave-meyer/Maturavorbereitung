@@ -1,7 +1,6 @@
 package view;
 
 import control.Controller;
-import model.IObserver;
 import model.Message;
 
 public class GUI implements IObserver {

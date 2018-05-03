@@ -1,4 +1,6 @@
-package model;
+package view;
+
+import model.Message;
 
 public interface IObserver {
 

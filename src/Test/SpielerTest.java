@@ -1,5 +1,6 @@
 package Test;
 
+import control.NotEnoughMoneyException;
 import model.Karte;
 import model.Kartenfarbe;
 import model.Kartenwert;
@@ -55,19 +56,35 @@ public class SpielerTest {
 
     @Test
     void testEinsatzZuviel() {
-        spieler.setEinsatz(600);
-        assertEquals(0, spieler.getBudget());
+        try {
+            spieler.setEinsatz(600);
+        }
+        catch (NotEnoughMoneyException e) {
+            assertEquals(0, spieler.getBudget());
+            return;
+        }
+        fail("testEinsatzZuviel: Exception not thrown");
     }
 
     @Test
     void testEinsatzZuviel2() {
-        spieler.setEinsatz(600);
-        assertEquals(500, spieler.getEinsatz());
+        try {
+            spieler.setEinsatz(600);
+        }
+        catch(NotEnoughMoneyException e) {
+            assertEquals(500, spieler.getEinsatz());
+            return;
+        }
+        fail("testEinsatzZuviel2: Exception not thrown");
     }
 
     @Test
     void testEinsatz() {
-        spieler.setEinsatz(400);
+        try {
+            spieler.setEinsatz(400);
+        } catch (NotEnoughMoneyException e) {
+            e.printStackTrace();
+        }
         assertEquals(100, spieler.getBudget());
     }
 }

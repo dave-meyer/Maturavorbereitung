@@ -26,6 +26,8 @@ public class Game {
     }
 
     public ArrayList<Karte> kartenMischeln(ArrayList<Karte> k) {
+        // Einfacher: Collections.shuffle(k);
+
         // Neues Array erstellen (enthält später die gemischelten Karten)
         ArrayList<Karte> temp = new ArrayList<>();
         // Zufallsgenerator erstellen

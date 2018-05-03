@@ -29,4 +29,9 @@ public class Karte {
         //}
         //return false;
     }
+
+    @Override
+    public String toString() {
+        return farbe.toString() + " " + wert.toString();
+    }
 }

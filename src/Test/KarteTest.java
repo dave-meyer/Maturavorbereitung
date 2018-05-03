@@ -53,4 +53,10 @@ class KarteTest {
 
         assertNotEquals(k1, k2);
     }
+
+    @Test
+    void testToString() {
+        Karte k = new Karte(Kartenwert.DAME, Kartenfarbe.HERZ);
+        assertEquals("HERZ DAME", k.toString());
+    }
 }
