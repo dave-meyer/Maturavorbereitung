@@ -9,17 +9,13 @@ import java.util.ArrayList;
 public class Model extends Observeable {
 
     private Game game;
-    private CommandRecorder recorder;
 
     public Model() {
         game = new Game();
-        recorder = new CommandRecorder();
     }
 
     public void gebeKarte(Spieler s) {
-        //game.gebeKarte(s); Methode wird im CommandRecoder ausgeführt
-        ICommand c = new KarteGebenCmd(this, s);
-        recorder.doCommand(c);
+        game.gebeKarte(s);
         notifyObservers(new Message()); // Message sollte irgendwas beinhalten
     }
 
